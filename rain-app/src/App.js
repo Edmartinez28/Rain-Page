@@ -22,7 +22,7 @@ function App() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
-    glftLoader.load("./assets/Tunel_1.glb", (gltfScene) => {
+    glftLoader.load("./assets/MapaEditado.glb", (gltfScene) => {
       loadedModel = gltfScene;
       console.log(loadedModel);
 
