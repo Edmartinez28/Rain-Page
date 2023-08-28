@@ -1,40 +1,61 @@
-/* Header.css */
-
 .header {
+  background-color: #2A2754;
+  color: #fff;
   display: flex;
   align-items: center;
-  padding: 20px;
-}
-
-.logo {
-  margin-right: 20px;
+  justify-content: space-between; /* Alinea el logo y el menú en lados opuestos */
+  padding: 10px;
 }
 
 .logo img {
-  width: 200px;
-  height: auto;
+  height: 100px;
 }
 
-.navbar-nav {
-  margin-left: auto;
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-.nav-link {
+.menu li {
+  margin-left: 20px;
+}
+
+.menu li:first-child {
+  margin-left: 0;
+}
+
+.menu a {
   color: #fff;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
-.dropdown-menu {
-  background-color: #343a40;
+.menu a:hover {
+  background-color: white;
 }
 
-.dropdown-item {
+/* Estilos para el menú desplegable */
+.submenu {
+  position: absolute;
+  background-color: #2A2754;
+  border-radius: 5px;
+  padding: 10px;
+  display: none; /* Ocultar el menú desplegable inicialmente */
+}
+
+.menu li:hover .submenu {
+  display: block; /* Mostrar el menú desplegable al pasar el cursor sobre "Eventos" */
+}
+
+.submenu li {
+  margin: 5px 0;
+}
+
+.submenu a {
+  display: block;
   color: #fff;
-}
-
-.navbar-toggler {
-  border-color: #fff;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30' width='30' height='30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  text-decoration: none;
 }
