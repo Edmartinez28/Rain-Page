@@ -22,9 +22,10 @@ function App() {
 
     let loadedModel;
     const glftLoader = new GLTFLoader();
-    glftLoader.load("./assets/Tunel_1.glb", (gltfScene) => {
+    glftLoader.load("./assets/MapaEditado.glb", (gltfScene) => {
       loadedModel = gltfScene;
       console.log(loadedModel);
+      
 
       /*gltfScene.scene.rotation.y = 10;*/
       gltfScene.scene.rotation.x = 0;
@@ -62,24 +63,69 @@ function App() {
         case "ArrowRight":
           test.camera.position.x += moveDistance; // Mueve la cámara hacia la derecha en el eje x
           break;
-        case "e":
+        case "d":
           test.camera.rotation.y -= rotateAngle; // Rota la cámara hacia la derecha
           break;
-        case "q":
+        case "a":
           test.camera.rotation.y += rotateAngle; // Rota la cámara hacia la izquierda
           break;
+        case "w":
+          test.camera.position.y += moveDistance; // Rota la cámara hacia la derechas
+          break;
+        case "s":
+           test.camera.position.y -= moveDistance; // Rota la cámara hacia la izquierda
+           break;
         default:
           break;
       }
     }
 
     window.addEventListener("keydown", handleKeyDown);
+    
+    // Desde aqui comienzo a modificar ---------------------------------------------------------------------
+
+    let isFullscreen = false;
+    const canvas = document.getElementById("myThreeJsCanvas");
+    const fullscreenButton = document.createElement("button");
+    fullscreenButton.innerText = "Pantalla completa";
+    document.body.appendChild(fullscreenButton);
+
+    function toggleFullscreen() {
+      if (!isFullscreen) {
+        if (canvas.requestFullscreen) {
+          canvas.requestFullscreen();
+        } else if (canvas.mozRequestFullScreen) {
+          canvas.mozRequestFullScreen();
+        } else if (canvas.webkitRequestFullscreen) {
+          canvas.webkitRequestFullscreen();
+        } else if (canvas.msRequestFullscreen) {
+          canvas.msRequestFullscreen();
+        }
+        fullscreenButton.innerText = "Salir de pantalla completa";
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+        fullscreenButton.innerText = "Pantalla completa";
+      }
+      isFullscreen = !isFullscreen;
+    }
+
+    fullscreenButton.addEventListener("click", toggleFullscreen);
   }, []);
+
+  
 
   return (
     <div className="container">
       <div className="canvas-container">
-        <canvas id="myThreeJsCanvas" />
+        <canvas id="myThreeJsCanvas"/>
       </div>
     </div>
   );
