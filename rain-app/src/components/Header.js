@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Header.css";
+import "../styles/header.css";
 
 const Header = () => {
   const [isEventMenuOpen, setEventMenuOpen] = useState(false);
@@ -19,7 +19,8 @@ const Header = () => {
       </div>
       <nav className="menu">
         <ul>
-          <li><a href="#">Quienes Somos</a></li>
+          <li><a href="/home">Quiénes Somos</a></li>
+          <li><a href="#">Convocatoria</a></li>
           <li
             onMouseEnter={handleEventMenuEnter}
             onMouseLeave={handleEventMenuLeave}
@@ -35,7 +36,7 @@ const Header = () => {
               </ul>
             )}
           </li>
-          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Contáctenos</a></li>
         </ul>
       </nav>
     </header>
